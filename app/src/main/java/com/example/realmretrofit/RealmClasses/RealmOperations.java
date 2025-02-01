@@ -1,5 +1,7 @@
 package com.example.realmretrofit.RealmClasses;
 
+import android.util.Log;
+
 import java.util.List;
 
 import io.realm.Case;

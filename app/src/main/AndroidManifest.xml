@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Realmretrofit"
         tools:targetApi="31">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.ProductListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ProductListActivity"/>
-        <activity android:name=".activity.updateuserlist"/>
-        <activity android:name=".activity.userRealmlist"/>
-        <activity android:name=".activity.userDetails"/>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,9 +40,11 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         final ProductsRealm productRealm = productsRealm.get(holder.getAdapterPosition());
+        holder.imgProduct.setImageResource(productRealm.getProductImage());
+        holder.imgProductAdd.setImageResource(productRealm.getProductAdd());
         holder.txtProductName.setText(productRealm.getProductName());
-        holder.txtProductTax.setText(productRealm.getProductTaxRate()+"%");
-        holder.txtProductPrice.setText("Rs "+productRealm.getProductPrice());
+        holder.txtProductTax.setText(productRealm.getProductTaxRate() + "%");
+        holder.txtProductPrice.setText("Rs " + productRealm.getProductPrice());
 
         holder.imgProductAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,12 +54,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         });
     }
 
-    public void deleteUser(int position) {
-        productsRealm.remove(position);
-        notifyItemRemoved(position);
-    }
-
-
     @Override
     public int getItemCount() {
         return productsRealm.size();
@@ -65,7 +62,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public AppCompatTextView txtProductName, txtProductTax, txtProductPrice;
-        public AppCompatImageView imgProductAdd;
+        public AppCompatImageView imgProductAdd, imgProduct;
 
 
         public ViewHolder(View itemView) {
@@ -74,6 +71,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             this.imgProductAdd = (AppCompatImageView) itemView.findViewById(R.id.img_product_add);
             this.txtProductTax = (AppCompatTextView) itemView.findViewById(R.id.txt_product_tax);
             this.txtProductPrice = (AppCompatTextView) itemView.findViewById(R.id.txt_product_price);
+            this.imgProduct = (AppCompatImageView) itemView.findViewById(R.id.image);
         }
     }
 }
